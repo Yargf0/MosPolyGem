@@ -9,7 +9,7 @@ public class LearningBar : ValueBar
     [SerializeField] 
     private TextMeshProUGUI LearningText;
     [SerializeField]
-    LearningSystem LearningSystem=new LearningSystem();
+    LearningSystem LearningSystem;
     public override void SetValue(float value)
     {
         base.SetValue(value);
