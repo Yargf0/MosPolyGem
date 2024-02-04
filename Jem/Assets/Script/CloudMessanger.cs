@@ -8,9 +8,12 @@ using UnityEngine;
 public class CloudMessanger : MonoBehaviour
 {
     [SerializeField]
-    Canvas canvas;
+    private Canvas canvas;
     [SerializeField]
-    TextMeshProUGUI textMeshProUGUI;
+    private TextMeshProUGUI textMeshProUGUI;
+    [SerializeField]
+    float TimeToHide = 5.0f;
+    private bool IsShowingMessage;
     Timer timer;
     void Start()
     {
@@ -18,23 +21,29 @@ public class CloudMessanger : MonoBehaviour
     }
     public void ShowMessage(string message)
     {
+        SetActive(true);
+        IsShowingMessage=true;
         textMeshProUGUI.text = message;
-        //SetHideTimer(5.0);
+        SetHideTimer(TimeToHide);
     }
-    IEnumerator SetHideTimer(float timeInSec)
-    {
-        yield return new WaitForSeconds(timeInSec);
-        //сделать нужное
-    }
-
     public void SetActive(bool active)
     {
         if (active)
         {
             this.gameObject.SetActive(true);
-        }else
+        }
+        else
         {
             this.gameObject.SetActive(false);
         }
     }
+    private IEnumerator SetHideTimer(float timeInSec)
+    {
+        yield return new WaitForSeconds(timeInSec);
+        SetActive(false);
+        IsShowingMessage = false;
+        //сделать нужное
+    }
+
+    
 }
