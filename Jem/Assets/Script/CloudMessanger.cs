@@ -11,19 +11,39 @@ public class CloudMessanger : MonoBehaviour
     private TextMeshProUGUI textMeshProUGUI;
     [SerializeField]
     float TimeToHide = 5.0f;
-    private bool IsShowingMessage;
+    [SerializeField]
+    public float typingSpeed = 0.05f;
+    private bool IsTypingMessage;
     Timer timer;
-    void Start()
+    private string Text
     {
-        textMeshProUGUI.text = "Привет";
+        get { return textMeshProUGUI.text; }
+        set
+        {
+            textMeshProUGUI.text = value;
+        }
     }
     public void ShowMessage(string message)
     {
-        SetActive(true);
-        IsShowingMessage=true;
-        textMeshProUGUI.text = message;
-        SetHideTimer(TimeToHide);
+        StartCoroutine(DisplayMessage(message));
+       
     }
+
+    private IEnumerator DisplayMessage(string message)
+    {
+        Text = "";
+        SetActive(true);
+        IsTypingMessage = true;
+        foreach (char letter in message.ToCharArray())
+        {
+            Text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+        IsTypingMessage = false;
+        yield return new WaitForSeconds(TimeToHide);
+        SetActive(false);
+    }
+
     public void SetActive(bool active)
     {
         if (active)
@@ -34,12 +54,6 @@ public class CloudMessanger : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
-    }
-    private IEnumerator SetHideTimer(float timeInSec)
-    {
-        yield return new WaitForSeconds(timeInSec);
-        SetActive(false);
-        IsShowingMessage = false;
     }
 
     
