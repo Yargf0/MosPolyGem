@@ -8,14 +8,10 @@ public class Player : MonoBehaviour
     //не здесь, а в ui контроллере??
     [SerializeField]
     LearningBar LearningBar;
-
-    LearningSystem LearningSystem;
     void Start()
     {
-        LearningSystem=GetComponent<LearningSystem>();
-        LearningBar.SetLearningSystem(LearningSystem);
+        LearningBar.SetLearningSystem(LearningSystem._i);
     }
-
     // Update is called once per frame
     void Update()
     {

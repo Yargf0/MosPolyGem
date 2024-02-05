@@ -8,17 +8,22 @@ public  class ValueSystem
     [SerializeField] public ValueEvent ValueChanged = new ValueEvent();
     private int _value;
     private int _valuemax;
-    public void Setup(int value)
+    protected void Setup(int value)
     {
         _value = _valuemax = value;
         SayChanged();
     }
-    public void AddValue(int value)
+    protected void Set(int value)
+    {
+        _value = Mathf.Clamp(_value, value,_valuemax );
+        SayChanged();
+    }
+    protected void AddValue(int value)
     {
         _value=Mathf.Clamp(_value + value, 0, _valuemax);
         SayChanged();
-    } 
-    public void RemoveValue(int value)
+    }
+    protected void RemoveValue(int value)
     {
         _value=Mathf.Clamp(_value - value, 0, _valuemax);
         SayChanged();
@@ -27,7 +32,7 @@ public  class ValueSystem
     {
         ValueChanged.Invoke((float)_value / _valuemax);
     }
-    public int GetValue()
+    protected int GetValue()
     {
         return _value;
     }

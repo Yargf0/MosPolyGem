@@ -8,8 +8,6 @@ using UnityEngine;
 public class CloudMessanger : MonoBehaviour
 {
     [SerializeField]
-    private Canvas canvas;
-    [SerializeField]
     private TextMeshProUGUI textMeshProUGUI;
     [SerializeField]
     float TimeToHide = 5.0f;
@@ -42,7 +40,6 @@ public class CloudMessanger : MonoBehaviour
         yield return new WaitForSeconds(timeInSec);
         SetActive(false);
         IsShowingMessage = false;
-        //сделать нужное
     }
 
     

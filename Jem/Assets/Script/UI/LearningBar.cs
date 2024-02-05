@@ -22,7 +22,7 @@ public class LearningBar : ValueBar
     public void SetLearningSystem(LearningSystem learningSystem)
     {
         this.LearningSystem = learningSystem;
-        SetValue(learningSystem.GetValue());
+        SetValue(learningSystem.GetLearningPoints());
         LearningSystem.ValueChanged.AddListener(SetValue);
         Debug.Log("AddedListener");
     }
