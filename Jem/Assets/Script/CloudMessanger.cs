@@ -1,11 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
-using TMPro;
 using UnityEngine;
 
-public class CloudMessanger : MonoBehaviour
+public class NewBehaviourScript : MonoBehaviour
 {
     [SerializeField]
     private TextMeshProUGUI textMeshProUGUI;
@@ -44,7 +41,8 @@ public class CloudMessanger : MonoBehaviour
         SetActive(false);
     }
 
-    public void SetActive(bool active)
+    // Update is called once per frame
+    void Update()
     {
         if (active)
         {
