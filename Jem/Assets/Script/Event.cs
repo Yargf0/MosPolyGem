@@ -33,8 +33,26 @@ public class Event : MonoBehaviour
     }
     public void NewEvent()
     {
-        pressed = false;
+        pressed = false;        
         activeEventIndex = Random.Range(0, eventPosition.Count);
+        if (activeEventIndex!=0)
+        {
+            withouStudy += 1;
+        }
+        if(withouStudy>=4)
+        {
+            activeEventIndex = 0;
+        }
+        if (activeEventIndex==3& lastEvent==0|| (activeEventIndex == 0 & lastEvent == 3))
+        {
+            NewEvent();
+            return;
+        }
+        if (lastEvent == activeEventIndex)
+        {
+            NewEvent();
+            return;
+        }
         lastEvent= activeEventIndex;
         eventButton[activeEventIndex].SetActive(true);
         eventObjects[activeEventIndex].SetActive(true);
