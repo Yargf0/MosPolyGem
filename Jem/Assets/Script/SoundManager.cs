@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class SoundManager : MonoBehaviour
@@ -32,6 +33,15 @@ public class SoundManager : MonoBehaviour
         if( audioClips == null ) { UnityEngine.Debug.LogError($"Звуки {sound} не найдены");return; }
         AudioClip newClip = GetRandomClip(audioClips);
         audioData.PlayOneShot(newClip);
+    }
+    public void PlayRepeatSound(string sound)
+    {
+        List<AudioClip> audioClips = SoundList[sound];
+        if (audioClips == null) { UnityEngine.Debug.LogError($"Звуки {sound} не найдены"); return; }
+        AudioClip newClip = GetRandomClip(audioClips);
+        audioData.clip = newClip;
+        audioData.loop = true;
+        audioData.Play();
     }
     private AudioClip GetRandomClip(List<AudioClip> audioClipArray)
     {
