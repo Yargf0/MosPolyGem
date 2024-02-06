@@ -6856,6 +6856,20 @@ MonoBehaviour:
   - {fileID: 95304059}
   - {fileID: 1370690660}
   - {fileID: 1188485362}
+  eventFailSound:
+  - {fileID: 8300000, guid: 6dd7b5606d1609e47bc8152736f63b55, type: 3}
+  - {fileID: 8300000, guid: cc6f9e0d8818edf478b303d2f102b0d3, type: 3}
+  - {fileID: 8300000, guid: 6c10565554f0a75468e18108d65f2cc1, type: 3}
+  - {fileID: 8300000, guid: 4c72da07fe541e347bbe1cddcabbf66d, type: 3}
+  - {fileID: 8300000, guid: 52ccfd9e880e53343a2f805fbcd894cc, type: 3}
+  - {fileID: 8300000, guid: 4361dd300b5d79c4f9af1520765272db, type: 3}
+  eventSucsesSound:
+  - {fileID: 8300000, guid: 6dd7b5606d1609e47bc8152736f63b55, type: 3}
+  - {fileID: 8300000, guid: 7177c1cfccb0dd8409eab534bd275c91, type: 3}
+  - {fileID: 8300000, guid: 35402fe33263fb3429826bd4d389cce4, type: 3}
+  - {fileID: 8300000, guid: 939fca521848e4745ba7b0be402f2ff7, type: 3}
+  - {fileID: 8300000, guid: 46000d59055289e4ca37a2b57627f13a, type: 3}
+  - {fileID: 8300000, guid: 723bc3ca2143eb345be1fc1276b7e7b8, type: 3}
   failTime: 10
   pressed: 0
 --- !u!114 &2034075088

@@ -6,16 +6,11 @@ using UnityEngine.SceneManagement;
 public class LoadSceneExit : MonoBehaviour
 {
     [SerializeField] private string nameOfScene;
-    // Start is called before the first frame update
+    public static LoadSceneExit Instance { get; private set; }
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void LoadScene(string scene)
@@ -23,7 +18,7 @@ public class LoadSceneExit : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 
-    public void OnCLick()
+    public void LoadOnCLick()
     {
         LoadScene(nameOfScene);
     }

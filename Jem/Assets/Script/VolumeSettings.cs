@@ -17,6 +17,6 @@ public class VolumeSettings : MonoBehaviour
     private void VolumeChanged(float value)
     {
         PlayerPrefs.SetFloat("volume", value);
-        SoundManager._i.VolumeChanged();
+        SoundManager.Instance.VolumeChanged();
     }
 }
