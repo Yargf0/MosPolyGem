@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.SearchService;
 using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class SoundManager : MonoBehaviour
@@ -10,16 +11,29 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance { get; private set; }
     [SerializeField] 
     AudioSource audioData;
+    [SerializeField]
+    AudioSource audioBack;
     [SerializeField] private List<AudioClip> music;
     private float volume;
     void Start()
     {
         DontDestroyOnLoad(gameObject);
         Instance = this;
-        audioData = GetComponent<AudioSource>();
         if(audioData != null ) { UnityEngine.Debug.Log("SoundManager started"); }
         else { UnityEngine.Debug.Log("SoundManager false"); }
         audioData.volume = PlayerPrefs.GetFloat("volume");
+        playBack(0);
+    }
+    public void playBack(int a)
+    {
+        audioBack.clip = music[a];
+        audioBack.Play();
+        audioBack.loop = true;
+    }
+
+    public void StopSound()
+    {
+        audioData.Stop();
     }
     public void VolumeChanged()
     {
