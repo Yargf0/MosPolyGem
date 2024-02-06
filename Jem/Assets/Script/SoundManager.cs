@@ -9,7 +9,8 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance { get; private set; }
     [SerializeField] 
-    AudioSource audioData;  
+    AudioSource audioData;
+    [SerializeField] private List<AudioClip> music;
     private float volume;
     void Start()
     {
@@ -30,12 +31,12 @@ public class SoundManager : MonoBehaviour
     }
     public void PlayRepeatSound(string sound)
     {
-        List<AudioClip> audioClips = SoundList[sound];
-        if (audioClips == null) { UnityEngine.Debug.LogError($"Звуки {sound} не найдены"); return; }
-        AudioClip newClip = GetRandomClip(audioClips);
-        audioData.clip = newClip;
-        audioData.loop = true;
-        audioData.Play();
+        //List<AudioClip> audioClips = SoundList[sound];
+        //if (audioClips == null) { UnityEngine.Debug.LogError($"Звуки {sound} не найдены"); return; }
+        //AudioClip newClip = GetRandomClip(audioClips);
+        //audioData.clip = newClip;
+        //audioData.loop = true;
+        //audioData.Play();
     }
     private AudioClip GetRandomClip(List<AudioClip> audioClipArray)
     {

@@ -7,7 +7,7 @@ public class Starting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SoundManager._i.PlayRepeatSound("√лавноећеню");
+        SoundManager.Instance.PlayRepeatSound("√лавноећеню");
         //SoundManager._i.PlayRepeatSound("√лавноећеню2");
     }
     // Update is called once per frame
