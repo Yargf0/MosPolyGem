@@ -156,6 +156,7 @@ MonoBehaviour:
   loxEnding: {fileID: 1201160235}
   goodEnding: {fileID: 174062242}
   howEnd: 0
+  chara: {fileID: 0}
 --- !u!4 &37142897
 Transform:
   m_ObjectHideFlags: 0
