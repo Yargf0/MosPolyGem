@@ -14,14 +14,13 @@ public class StudentController : MonoBehaviour
     private float currentTime, startTime;
     public Vector3 pointOfInterestOne;
     private bool reachedOne;
-    public static StudentController Instance { get; private set; }
     [SerializeField] private Animator animator;
+    public static StudentController Instance { get; private set; }
 
     private void Awake()
     {
         Instance = this;
     }
-
     void Start()
     {
         startTime = 4;
@@ -47,9 +46,9 @@ public class StudentController : MonoBehaviour
             currentTime = startTime;
         }
 
-        if ((float)Math.Round((double)agent.transform.position.x, 4) == (float)Math.Round((double)pointOfInterestOne.x, 4) && !reachedOne)
+        if ((float)Math.Round((double)agent.transform.position.x, 4) == (float)Math.Round((double)pointOfInterestOne.x, 4)&& !reachedOne)
         {
-            if ((float)Math.Round((double)agent.transform.position.y, 4) == (float)Math.Round((double)pointOfInterestOne.y, 4))
+            if ((float)Math.Round((double)agent.transform.position.y, 4)  == (float)Math.Round((double)pointOfInterestOne.y, 4) )
             {
                 roamingStudent = true;
                 reachedOne = true;
@@ -109,18 +108,19 @@ public class StudentController : MonoBehaviour
             animator.SetBool("Right", false);
             animator.SetBool("Left", false);
         }
+
     }
 
     public void NewDestenation(Vector3 transform)
     {
-        transform.z = gameObject.transform.position.z;
+        transform.z=gameObject.transform.position.z;
         pointOfInterestOne = transform;
         Debug.Log("New destination " + pointOfInterestOne);
         roamingStudent = false;
         reachedOne = false;
     }
 
-
+    //получение рандомной точки для брожения G
     private Vector2 GetRandomPosition()
     {
         float x = Random.Range(-6f, 6f);
