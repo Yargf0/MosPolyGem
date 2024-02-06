@@ -16,6 +16,7 @@ public class Learn : MonoBehaviour
     }
     public void AddStudy()
     {
+        Debug.Log(nowStudy);
         nowStudy += 1;
         UiStudy.fillAmount = nowStudy / MaxStudy;
         if (nowStudy >= MaxStudy) 
