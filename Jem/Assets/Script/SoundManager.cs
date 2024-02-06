@@ -20,6 +20,8 @@ public class SoundManager : MonoBehaviour
         if(audioData != null ) { UnityEngine.Debug.Log("SoundManager started"); }
         else { UnityEngine.Debug.Log("SoundManager false"); }
         audioData.volume = PlayerPrefs.GetFloat("volume");
+        audioData.clip = music[0];
+        audioData.Play();
     }
     public void VolumeChanged()
     {
