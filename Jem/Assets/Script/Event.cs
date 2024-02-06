@@ -18,6 +18,7 @@ public class Event : MonoBehaviour
     [SerializeField] private List<AudioClip> eventSucsesSound;
     private int activeEventIndex=99;
     private int lastEvent = 5;
+    private int withouStudy = 0;
     [SerializeField] private int failTime;
     public bool pressed=false;
     public static Event Instance { get; private set; }
@@ -34,6 +35,14 @@ public class Event : MonoBehaviour
     {
         pressed = false;        
         activeEventIndex = Random.Range(0, eventPosition.Count);
+        if (activeEventIndex!=0)
+        {
+            withouStudy += 1;
+        }
+        if(withouStudy>=4)
+        {
+            activeEventIndex = 0;
+        }
         if (lastEvent == activeEventIndex)
         {
             NewEvent();
