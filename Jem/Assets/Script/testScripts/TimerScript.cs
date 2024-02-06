@@ -8,6 +8,7 @@ public class TimerScript : MonoBehaviour
 {
     public float MaxTime;
     private float currentTime;
+    public TMP_Text timerShow;
     public bool Tick;
 
     /// <summary>
