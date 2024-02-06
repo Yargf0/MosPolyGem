@@ -7,27 +7,31 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class SoundManager : MonoBehaviour
 {
+    public static SoundManager _i { get; private set; }
     [SerializeField] 
     SoundDict soundDict;
     Dictionary<string, List<AudioClip>> SoundList;
-
     AudioSource audioData;  
     private float volume;
     void Start()
     {
+        _i = this;
         audioData = GetComponent<AudioSource>();
         if(audioData != null ) { UnityEngine.Debug.Log("SoundManager started"); }
         else { UnityEngine.Debug.Log("SoundManager false"); }
-        //volume = PlayerPrefs.GetFloat("volume");
+        audioData.volume = PlayerPrefs.GetFloat("volume");
         SoundList = soundDict.ToDictionary();
+    }
+    public void VolumeChanged()
+    {
+        audioData.volume = PlayerPrefs.GetFloat("volume");
     }
     public void PlaySound(string sound)
     {
         List<AudioClip> audioClips = SoundList[sound];
         if( audioClips == null ) { UnityEngine.Debug.LogError($"Звуки {sound} не найдены");return; }
         AudioClip newClip = GetRandomClip(audioClips);
-       // audioData.PlayOneShot(newClip, volume); 
-        audioData.PlayOneShot(newClip); 
+        audioData.PlayOneShot(newClip);
     }
     private AudioClip GetRandomClip(List<AudioClip> audioClipArray)
     {

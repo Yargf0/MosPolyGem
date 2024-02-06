@@ -74,7 +74,6 @@ public class Event : MonoBehaviour
         yield return new WaitForSeconds(5f);
         succesfulTexts[activeEventIndex].SetActive(false);
         NewEvent();
-
     }
     public int GetEvent()
     {

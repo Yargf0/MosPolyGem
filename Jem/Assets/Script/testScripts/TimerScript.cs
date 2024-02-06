@@ -37,6 +37,9 @@ public class TimerScript : MonoBehaviour
 
         int minutes = (int)(currentTime / 60);
         int seconds = (int)(currentTime % 60);
-        timerShow.text = $"{minutes}:{seconds}";
+        if (seconds<10)
+            timerShow.text = $"{minutes}:{"0" + seconds}";
+        else if (seconds>10)
+            timerShow.text = $"{minutes}:{ seconds}";
     }
 }

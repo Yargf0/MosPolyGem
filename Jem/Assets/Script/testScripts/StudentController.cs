@@ -22,6 +22,10 @@ public class StudentController : MonoBehaviour
         Instance = this;
     }
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         startTime = 4;
@@ -120,7 +124,7 @@ public class StudentController : MonoBehaviour
         reachedOne = false;
     }
 
-    //получение рандомной точки для брожения
+    //ГЇГ®Г«ГіГ·ГҐГ­ГЁГҐ Г°Г Г­Г¤Г®Г¬Г­Г®Г© ГІГ®Г·ГЄГЁ Г¤Г«Гї ГЎГ°Г®Г¦ГҐГ­ГЁГї
     private Vector2 GetRandomPosition()
     {
         float x = Random.Range(-6f, 6f);
