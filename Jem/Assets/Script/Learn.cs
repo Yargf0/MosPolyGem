@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Learn : MonoBehaviour
 {
-    public int MaxStudy = 10;
-    public int nowStudy;
+    public float MaxStudy = 10;
+    public float nowStudy;
     public Image UiStudy;
     public static Learn Instance { get; private set; }
 
@@ -24,7 +24,7 @@ public class Learn : MonoBehaviour
             Finish();
         }
     }
-    public int GetStudy()
+    public float GetStudy()
     {
         return nowStudy;
     }

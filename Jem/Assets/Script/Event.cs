@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,7 @@ public class Event : MonoBehaviour
     [SerializeField] private List<AudioClip> eventFailSound;
     [SerializeField] private List<AudioClip> eventSucsesSound;
     private int activeEventIndex=99;
+    private int lastEvent = 5;
     [SerializeField] private int failTime;
     public bool pressed=false;
     public static Event Instance { get; private set; }
@@ -30,8 +32,14 @@ public class Event : MonoBehaviour
     }
     public void NewEvent()
     {
-        pressed = false;
-        activeEventIndex = Random.Range(0, eventPosition.Count);        
+        pressed = false;        
+        activeEventIndex = Random.Range(0, eventPosition.Count);
+        if (lastEvent == activeEventIndex)
+        {
+            NewEvent();
+            return;
+        }
+        lastEvent= activeEventIndex;
         eventButton[activeEventIndex].SetActive(true);
         eventObjects[activeEventIndex].SetActive(true);
         Debug.Log(eventPosition[activeEventIndex].position);
