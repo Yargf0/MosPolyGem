@@ -43,6 +43,11 @@ public class Event : MonoBehaviour
         {
             activeEventIndex = 0;
         }
+        if (activeEventIndex==3& lastEvent==0|| (activeEventIndex == 0 & lastEvent == 3))
+        {
+            NewEvent();
+            return;
+        }
         if (lastEvent == activeEventIndex)
         {
             NewEvent();
