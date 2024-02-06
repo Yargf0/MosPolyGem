@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class NewBehaviourScript : MonoBehaviour
     [SerializeField]
     public float typingSpeed = 0.05f;
     private bool IsTypingMessage;
-    Timer timer;
+    private bool active;
+    //Timer timer;
     private string Text
     {
         get { return textMeshProUGUI.text; }
@@ -29,7 +31,7 @@ public class NewBehaviourScript : MonoBehaviour
     private IEnumerator DisplayMessage(string message)
     {
         Text = "";
-        SetActive(true);
+        gameObject.SetActive(true);
         IsTypingMessage = true;
         foreach (char letter in message.ToCharArray())
         {
@@ -38,7 +40,7 @@ public class NewBehaviourScript : MonoBehaviour
         }
         IsTypingMessage = false;
         yield return new WaitForSeconds(TimeToHide);
-        SetActive(false);
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
