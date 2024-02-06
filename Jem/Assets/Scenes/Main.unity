@@ -6084,7 +6084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1656d25503a0494aaa8bf8cedc2163e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxTime: 300
+  MaxTime: 500
   timerShow: {fileID: 1728107519}
   Tick: 0
 --- !u!114 &1728107519
