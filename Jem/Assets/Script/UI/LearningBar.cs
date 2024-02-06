@@ -8,8 +8,10 @@ public class LearningBar : ValueBar
 {
     [SerializeField] 
     private TextMeshProUGUI LearningText;
-    [SerializeField]
-    LearningSystem LearningSystem;
+    private void Start()
+    {
+        LearningSystem.i.ValueChanged.AddListener(SetValue);
+    }
     public override void SetValue(float value)
     {
         base.SetValue(value);
@@ -18,12 +20,5 @@ public class LearningBar : ValueBar
     public void SetLearningText(int value)
     {
         LearningText.text = "Level: " + value;
-    }
-    public void SetLearningSystem(LearningSystem learningSystem)
-    {
-        this.LearningSystem = learningSystem;
-        SetValue(learningSystem.GetLearningPoints());
-        LearningSystem.ValueChanged.AddListener(SetValue);
-        Debug.Log("AddedListener");
     }
 }

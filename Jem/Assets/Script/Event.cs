@@ -11,6 +11,13 @@ public class Event : MonoBehaviour
     [SerializeField] private List<GameObject> faileureObjects;
     [SerializeField] private List<Transform> eventPosition;
     [SerializeField] private List<GameObject> eventButton;
+<<<<<<< Updated upstream
+=======
+    [SerializeField] private List<GameObject> succesfulTexts;
+    [SerializeField] private List<GameObject> unsuccesfulTexts;
+    [SerializeField] private List<AudioClip> eventFailSound;
+    [SerializeField] private List<AudioClip> eventSucsesSound;
+>>>>>>> Stashed changes
     private int activeEventIndex=99;
     [SerializeField] private int failTime;
     public bool pressed=false;
@@ -27,7 +34,7 @@ public class Event : MonoBehaviour
     public void NewEvent()
     {
         pressed = false;
-        activeEventIndex = Random.Range(0, eventPosition.Count - 1);        
+        activeEventIndex = Random.Range(0, eventPosition.Count);        
         eventButton[activeEventIndex].SetActive(true);
         eventObjects[activeEventIndex].SetActive(true);
         Debug.Log(eventPosition[activeEventIndex].position);
@@ -38,13 +45,23 @@ public class Event : MonoBehaviour
     {
         Debug.Log("Event " + activeEventIndex + " faild");
         player.SetActive(false);
+        SoundManager.Instance.PlaySound(eventFailSound[activeEventIndex]);
         faileureObjects[activeEventIndex].SetActive(true);
         eventButton[activeEventIndex].SetActive(false);
         StartCoroutine(whaitFail());
     }
     IEnumerator whaitFail()
     {
+<<<<<<< Updated upstream
         yield return new WaitForSeconds(failTime);
+=======
+        unsuccesfulTexts[activeEventIndex].SetActive(false);
+        yield return new WaitForSeconds(failTime);   
+        if (activeEventIndex==0)
+        {
+            Learn.Instance.AddStudy();
+        }
+>>>>>>> Stashed changes
         StartCoroutine(whaitNewEvent());
     }
     public void CheckEvent()
@@ -55,6 +72,11 @@ public class Event : MonoBehaviour
         }
         else
         {
+<<<<<<< Updated upstream
+=======
+            succesfulTexts[activeEventIndex].SetActive(true);
+            SoundManager.Instance.PlaySound(eventSucsesSound[activeEventIndex]);
+>>>>>>> Stashed changes
             StartCoroutine(whaitNewEvent());
         }        
     }
