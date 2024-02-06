@@ -40,7 +40,7 @@ public class SoundManager : MonoBehaviour
 
         audioData.volume = PlayerPrefs.GetFloat("volume");
 
-        audioBack.volume = PlayerPrefs.GetFloat("volume");
+        audioBack.volume = PlayerPrefs.GetFloat("volume")/2;
     }
     public void PlaySound(AudioClip newClip)
     {
