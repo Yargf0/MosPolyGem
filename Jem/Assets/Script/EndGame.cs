@@ -4,22 +4,30 @@ using UnityEngine;
 using UnityEngine.UI;
 public class EndGame : MonoBehaviour
 {
-    [SerializeField] private Image allEnding;
-    [SerializeField] private Image loxEnding;
-    [SerializeField] private Image goodEnding;
+    [SerializeField] private GameObject allEnding;
+    [SerializeField] private GameObject loxEnding;
+    [SerializeField] private GameObject goodEnding;
+    [SerializeField] private bool howEnd;
+    public static EndGame Instance { get; private set; }
+    private void Start()
+    {
+        Instance = this;
+    }
     public void End(bool i)
     {
-        if (i)
-        {
-            ShowImage(goodEnding);
-        }
-        else
-        {
-            ShowImage(loxEnding);
-        }
+        howEnd = i;
+        allEnding.SetActive(true);
     }
-    private void ShowImage(Image i)
+    public void ShowNextImage()
     {
-
+        allEnding.SetActive(false);
+        if (howEnd)
+        {
+            allEnding.SetActive(true);
+        }
+        else 
+        {
+            loxEnding.SetActive(true);
+        }       
     }
 }

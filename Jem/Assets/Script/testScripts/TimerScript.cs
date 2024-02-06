@@ -26,13 +26,12 @@ public class TimerScript : MonoBehaviour
 
     void Update()
     {
-        Tick = false;
+        
         currentTime -= Time.deltaTime;
 
         if (currentTime<=0)
         {
-            Tick=true;
-            currentTime = MaxTime;
+            EndGame.Instance.End(false);
         }
 
         int minutes = (int)(currentTime / 60);

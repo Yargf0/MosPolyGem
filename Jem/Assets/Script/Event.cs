@@ -51,7 +51,11 @@ public class Event : MonoBehaviour
     IEnumerator whaitFail()
     {
         unsuccesfulTexts[activeEventIndex].SetActive(false);
-        yield return new WaitForSeconds(failTime);        
+        yield return new WaitForSeconds(failTime);   
+        if (activeEventIndex==0)
+        {
+            Learn.Instance.AddStudy();
+        }
         StartCoroutine(whaitNewEvent());
     }
     public void CheckEvent()
