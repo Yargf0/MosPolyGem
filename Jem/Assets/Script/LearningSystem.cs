@@ -6,7 +6,19 @@ using UnityEngine.Events;
 
 public class LearningSystem : ValueSystem
 {
-    public static LearningSystem _i { get; private set; }
+    private static LearningSystem _i;
+    public static LearningSystem i
+    {
+        get
+        {
+            if (_i == null)
+            {
+                _i = new LearningSystem();
+            }
+            return _i;
+        }
+        
+    }
     [SerializeField]
     int maxpoints=10;
     UnityEvent Win;
