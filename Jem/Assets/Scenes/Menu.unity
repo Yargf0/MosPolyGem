@@ -1020,6 +1020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioData: {fileID: 1422468475}
+  music: []
 --- !u!82 &1422468475
 AudioSource:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class Setting : MonoBehaviour
     [SerializeField] private GameObject slider;
     void Start()
     {
+        slider.GetComponent<Slider>().value = 0.5f;
         slider.GetComponent<Slider>().onValueChanged.AddListener(VolumeChanged);
         float i =PlayerPrefs.GetFloat("volume");
         if (i >=0)

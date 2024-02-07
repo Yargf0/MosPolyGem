@@ -156,7 +156,7 @@ MonoBehaviour:
   loxEnding: {fileID: 1201160235}
   goodEnding: {fileID: 174062242}
   howEnd: 0
-  chara: {fileID: 0}
+  chara: {fileID: 377618462}
 --- !u!4 &37142897
 Transform:
   m_ObjectHideFlags: 0
@@ -3287,7 +3287,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 845620786}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 37142896}
+        m_TargetAssemblyTypeName: EndGame, Assembly-CSharp
+        m_MethodName: ShowLast
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &845620786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7937,7 +7949,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2122308992}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 37142896}
+        m_TargetAssemblyTypeName: EndGame, Assembly-CSharp
+        m_MethodName: ShowLast
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2122308992
 MonoBehaviour:
   m_ObjectHideFlags: 0
